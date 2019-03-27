@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.io.*;
+class D{
+    long s=0;
+    public long result(long b1,long w1,long bc1,long wc1,long z1,long m1)
+    {
+        if(bc1==wc1)
+        s=(b1*bc1)+(w1*wc1);
+        else{
+            if(z1>=m1)
+            s=(b1*bc1)+(w1*wc1);
+            else
+                {
+                if(bc1>=(wc1+z1))
+                s=((b1+w1)*wc1 + b1*z1);
+                else
+                s=((b1+w1)*bc1 + w1*z1);
+                }
+            }
+            return s;
+    }
+}
+class A
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        D d=new D();
+        int t=sc.nextInt();    
+        for(int i=0; i<t; i++)
+        {
+        long b=sc.nextLong();
+        long w=sc.nextLong();
+        long bc=sc.nextLong();
+        long wc=sc.nextLong();
+        long z=sc.nextLong();
+        long s1=0;
+        long m=Math.abs(bc - wc);
+        if(b==w)
+        s1=d.result(b,w,bc,wc,z,m);
+       else if(b>w)
+        s1=d.result(b,w,bc,wc,z,m);
+        else
+        s1=d.result(b,w,bc,wc,z,m);    
+        System.out.println(s1);
+        }
+    }
+}
